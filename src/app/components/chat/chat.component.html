@@ -1,0 +1,46 @@
+<div class="chat-container bg-dark">
+    <div class="">
+      <!-- <h2>Company AI Assistant</h2> -->
+      <!-- <div class="upload-section">
+        <label for="fileUpload" class="upload-button" [class.uploading]="isUploading">
+          <i class="bi bi-cloud-upload"></i>
+          {{ isUploading ? 'Uploading...' : 'Upload Documents' }}
+        </label>
+        <input 
+          type="file" 
+          id="fileUpload" 
+          (change)="onFileSelected($event)" 
+          accept=".pdf,.doc,.docx,.txt"
+          [disabled]="isUploading"
+          multiple>
+      </div> -->
+    </div>
+  
+    <div class="chat-messages" #chatContainer>
+      <div *ngFor="let message of messages" 
+           class="message" 
+           [class.user-message]="message.sender === 'user'"
+           [class.bot-message]="message.sender === 'bot'">
+        <div class="message-content">
+          <i *ngIf="message.sender === 'bot'" class="bi bi-robot"></i>
+          <i *ngIf="message.sender === 'user'" class="bi bi-person"></i>
+          <div class="message-text">{{ message.content }}</div>
+        </div>
+        <div class="message-timestamp">
+          {{ message.timestamp | date:'shortTime' }}
+        </div>
+      </div>
+    </div>
+  
+    <div class="chat-input">
+      <input 
+        type="text" 
+        [(ngModel)]="newMessage" 
+        (keyup.enter)="sendMessage()"
+        placeholder="Type your message here..."
+        [disabled]="isUploading">
+      <button (click)="sendMessage()" [disabled]="!newMessage.trim() || isUploading">
+        <i class="bi bi-send"></i>
+      </button>
+    </div>
+  </div>

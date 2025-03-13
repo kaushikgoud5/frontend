@@ -1,0 +1,35 @@
+<div class="container text-center text-white mt-5">
+  <!-- <div class="badge bg-success text-white mb-3">New Feature: Save Directly to Lists Now</div> -->
+  <h1 class="display-2 fw-bold">
+    <div @wordBlurToClear>
+      <span *ngFor="let word of text.split(' ')">{{ word }} </span>
+    </div>
+  </h1>
+  <h1 class="display-1 fw-bold text-secondary" @wordBlurToClear>
+    <span *ngFor="let word of subtitleText.split(' ')">{{ word }} </span>
+  </h1>
+
+  <p class="lead text-secondary mt-3">
+    <span *ngFor="let word of descriptionText.split(' ')">{{ word }} </span>
+  </p>
+
+  <div class="d-flex justify-content-center mt-4">
+      <button class="btn btn-outline-light me-3">Read Article  <i class="bi bi-book-fill "></i></button>
+      <button class="btn btn-light text-black fw-bold" routerLink="chat">Try Demo <i class="bi bi-arrow-up-right "></i></button>
+    </div>
+
+  <div class="d-flex justify-content-center mt-5 gap-3">
+      <div class="feature-box">
+        <span class="fw-bold">🖥 Add Extension to Chrome</span>
+      </div>
+      <div class="feature-box">
+        <span class="fw-bold">⌨️ Found an important thing? Press CTRL+Q or CMD+K</span>
+      </div>
+      <div class="feature-box">
+        <span class="fw-bold">📝 Add a note, choose list, and/or press ENTER</span>
+      </div>
+      <div class="feature-box">
+        <span class="fw-bold">📱 Access it on mobile/web anytime</span>
+      </div>
+    </div>
+</div>
